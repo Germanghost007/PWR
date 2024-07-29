@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://ov722epshrj6"]
+
+[ext_resource type="Script" path="res://Reactor.cs" id="1_0le6r"]
+[ext_resource type="Script" path="res://PowerDisplay.cs" id="2_gelht"]
+[ext_resource type="Script" path="res://RCP.cs" id="3_frxs3"]
+[ext_resource type="Script" path="res://ReactorSection.cs" id="3_rldhx"]
+[ext_resource type="Script" path="res://SteamGen.cs" id="4_7vjdy"]
+[ext_resource type="Script" path="res://ReflectorSection.cs" id="4_khfqy"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+localize_numeral_system = false
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 68.0
+offset_bottom = 68.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReactorContainer" type="VBoxContainer" parent="GridContainer"]
+layout_mode = 2
+
+[node name="RodContainer" type="HBoxContainer" parent="GridContainer/ReactorContainer"]
+layout_mode = 2
+
+[node name="Rod-4" type="Button" parent="GridContainer/ReactorContainer/RodContainer"]
+layout_mode = 2
+text = "- - - -"
+
+[node name="Rod-3" type="Button" parent="GridContainer/ReactorContainer/RodContainer"]
+layout_mode = 2
+text = "- - -"
+
+[node name="Rod-2" type="Button" parent="GridContainer/ReactorContainer/RodContainer"]
+layout_mode = 2
+text = "- -"
+
+[node name="Rod-1" type="Button" parent="GridContainer/ReactorContainer/RodContainer"]
+layout_mode = 2
+text = "-"
+
+[node name="Label" type="Label" parent="GridContainer/ReactorContainer/RodContainer"]
+layout_mode = 2
+tooltip_text = "Average rod position in %"
+mouse_filter = 1
+text = "%"
+
+[node name="Rod+1" type="Button" parent="GridContainer/ReactorContainer/RodContainer"]
+layout_mode = 2
+text = "+"
+
+[node name="Rod+2" type="Button" parent="GridContainer/ReactorContainer/RodContainer"]
+layout_mode = 2
+text = "+ +"
+
+[node name="Rod+3" type="Button" parent="GridContainer/ReactorContainer/RodContainer"]
+layout_mode = 2
+text = "+ + +"
+
+[node name="Rod+4" type="Button" parent="GridContainer/ReactorContainer/RodContainer"]
+layout_mode = 2
+text = "+ + + +"
+
+[node name="PowerDisplay" type="Label" parent="GridContainer/ReactorContainer"]
+layout_mode = 2
+script = ExtResource("2_gelht")
+
+[node name="Control" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Primary" type="Node2D" parent="Control"]
+
+[node name="Reactor" type="Node2D" parent="Control/Primary"]
+script = ExtResource("1_0le6r")
+
+[node name="ReactorSection" type="Node2D" parent="Control/Primary/Reactor"]
+script = ExtResource("3_rldhx")
+
+[node name="ReflectorSection" type="Node2D" parent="Control/Primary/Reactor"]
+script = ExtResource("4_khfqy")
+
+[node name="RCP" type="Node2D" parent="Control/Primary"]
+script = ExtResource("3_frxs3")
+
+[node name="Pressurizer" type="Node2D" parent="Control/Primary"]
+
+[node name="SteamGen" type="Node2D" parent="Control"]
+script = ExtResource("4_7vjdy")
+
+[node name="Secondary" type="Node2D" parent="Control"]
+
+[node name="Turbine" type="Node2D" parent="Control/Secondary"]
+
+[node name="FW" type="Node2D" parent="Control/Secondary"]
+
+[node name="Heater" type="Node2D" parent="Control/Secondary"]
+
+[node name="Condenser" type="Node2D" parent="Control"]
+
+[node name="Tertiary" type="Node2D" parent="Control"]
+
+[node name="CCP" type="Node2D" parent="Control/Tertiary"]
