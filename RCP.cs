@@ -12,7 +12,9 @@ public partial class RCP : Node2D
 	public override void _Process(double delta)
 	{
 	}
+	public RCP otherRCP;
 
+	public double waterflow = 0;
 	double flow = 0;
 	
 }

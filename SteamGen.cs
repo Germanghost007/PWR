@@ -12,4 +12,8 @@ public partial class SteamGen : Node2D
 	public override void _Process(double delta)
 	{
 	}
+
+	public double primaryouttemp;
+	public double primaryintemp;
+	
 }

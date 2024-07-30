@@ -11,13 +11,23 @@ public partial class ReactorSection : Node2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		prevPower = power;
 	}
-	Reactor Reactor;
-	RCP RCP;
-	SteamGen sendingSteamGen;
-	SteamGen receivingSteamGen;
-	double[] rods;
 
+	public ReactorSection(SteamGen sender, SteamGen receiver, RCP[] pumps) {
+		sendingSteamGen = sender;
+		receivingSteamGen = receiver;
+	}
 
+	
+	public RCP[] rcps;
+	public SteamGen sendingSteamGen;
+	public SteamGen receivingSteamGen;
 
+	public double[] rods;
+	public double inflowTemp;
+	public double outflowTemp;
+	public double power;
+	public double prevPower;
+	public double waterflow;
 }
